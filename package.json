@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "frontend:install": "npm --prefix frontend install",
+    "frontend:dev": "npm --prefix frontend run dev",
+    "frontend:build": "npm --prefix frontend run build",
+    "electron:dev": "npm --prefix frontend run electron:dev",
+    "electron:build:backend": "npm --prefix frontend run electron:build:backend",
+    "electron:dist": "npm --prefix frontend run electron:dist:full"
+  },
+  "dependencies": {
+    "typescript": "^5.9.3",
+    "typescript-language-server": "^5.1.3"
+  }
+}

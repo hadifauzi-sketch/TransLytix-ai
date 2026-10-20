@@ -1,0 +1,6 @@
+-r requirements.txt
+xgboost>=2,<4
+lightgbm>=4.3,<5
+shap>=0.45,<1
+# Install TensorFlow separately if required; NumPy LSTM works without it.
+# tensorflow>=2.16,<3

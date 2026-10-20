@@ -1,0 +1,2 @@
+# Vercel installs requirements.txt automatically; keep this alias for manual use.
+-r requirements.txt

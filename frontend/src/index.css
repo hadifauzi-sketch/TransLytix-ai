@@ -1,0 +1,404 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* shadcn-style theme tokens — namespaced --ui-* to avoid colliding
+     with the legacy --bg / --accent / --border (hex) variables used
+     by the existing component classes below. Values are HSL triplets
+     consumed via hsl(var(--ui-*)) in tailwind.config.js. */
+  :root {
+    --ui-background: 0 0% 98%;
+    --ui-foreground: 240 6% 10%;
+    --ui-card: 0 0% 100%;
+    --ui-card-foreground: 240 6% 10%;
+    --ui-popover: 0 0% 100%;
+    --ui-popover-foreground: 240 6% 10%;
+    --ui-brand: 240 6% 10%;
+    --ui-brand-foreground: 0 0% 98%;
+    --ui-muted: 240 5% 96%;
+    --ui-muted-foreground: 240 4% 46%;
+    --ui-accent: 240 5% 96%;
+    --ui-accent-foreground: 240 6% 10%;
+    --ui-destructive: 0 72% 51%;
+    --ui-destructive-foreground: 210 40% 98%;
+    --ui-border: 240 6% 90%;
+    --ui-input: 240 6% 90%;
+    --ui-ring: 240 6% 10%;
+    --ui-radius: 0.625rem;
+    --bg: #fafafa;
+    --bg-card: #ffffff;
+    --bg-input: #f4f4f5;
+    --bg-hover: #ededf0;
+    --border: #e4e4e7;
+    --border-light: #d4d4d8;
+    --text: #18181b;
+    --text-dim: #27272a;
+    --text-muted: #71717a;
+    --accent: #18181b;
+    --accent-dark: #09090b;
+    --accent-soft: rgba(24, 24, 27, 0.08);
+    --accent-soft-strong: rgba(24, 24, 27, 0.12);
+    --accent-border: rgba(24, 24, 27, 0.16);
+    --accent-border-strong: rgba(24, 24, 27, 0.24);
+    --accent-solid: rgba(24, 24, 27, 0.88);
+    --success: #15803d;
+    --warning: #b45309;
+    --danger: #b91c1c;
+    --purple: #7c3aed;
+    --foreground: var(--text);
+    --muted: var(--text-muted);
+    --card: var(--bg-card);
+    --card-muted: var(--bg-input);
+    --card-strong: var(--bg-hover);
+    --primary: var(--accent);
+    --primary-soft: rgba(24, 24, 27, 0.10);
+    --primary-foreground: #fafafa;
+    --ring: var(--accent);
+    --overlay: rgba(9, 9, 11, 0.72);
+    --warning-soft: rgba(180, 83, 9, 0.10);
+    --warning-strong: var(--warning);
+    --danger-strong: var(--danger);
+    --shadow-card: 0 18px 40px rgba(24, 24, 27, 0.08);
+    --shadow-dialog: 0 24px 64px rgba(24, 24, 27, 0.18);
+    --header-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 250, 250, 0.98) 100%);
+    color-scheme: light;
+  }
+
+  .dark {
+    --ui-background: 240 10% 4%;
+    --ui-foreground: 0 0% 98%;
+    --ui-card: 240 6% 8%;
+    --ui-card-foreground: 0 0% 98%;
+    --ui-popover: 240 6% 8%;
+    --ui-popover-foreground: 0 0% 98%;
+    --ui-brand: 0 0% 98%;
+    --ui-brand-foreground: 240 6% 10%;
+    --ui-muted: 240 4% 16%;
+    --ui-muted-foreground: 240 5% 65%;
+    --ui-accent: 240 4% 16%;
+    --ui-accent-foreground: 0 0% 98%;
+    --ui-destructive: 0 63% 50%;
+    --ui-destructive-foreground: 210 40% 98%;
+    --ui-border: 240 4% 16%;
+    --ui-input: 240 4% 16%;
+    --ui-ring: 0 0% 98%;
+    --bg: #09090b;
+    --bg-card: #111113;
+    --bg-input: #18181b;
+    --bg-hover: #27272a;
+    --border: #27272a;
+    --border-light: #3f3f46;
+    --text: #fafafa;
+    --text-dim: #e4e4e7;
+    --text-muted: #a1a1aa;
+    --accent: #fafafa;
+    --accent-dark: #e4e4e7;
+    --accent-soft: rgba(250, 250, 250, 0.08);
+    --accent-soft-strong: rgba(250, 250, 250, 0.12);
+    --accent-border: rgba(250, 250, 250, 0.18);
+    --accent-border-strong: rgba(250, 250, 250, 0.28);
+    --accent-solid: rgba(250, 250, 250, 0.92);
+    --success: #4ade80;
+    --warning: #fbbf24;
+    --danger: #f87171;
+    --purple: #a78bfa;
+    --foreground: var(--text);
+    --muted: var(--text-muted);
+    --card: var(--bg-card);
+    --card-muted: var(--bg-input);
+    --card-strong: var(--bg-hover);
+    --primary: var(--accent);
+    --primary-soft: rgba(250, 250, 250, 0.10);
+    --primary-foreground: #09090b;
+    --ring: var(--accent);
+    --overlay: rgba(0, 0, 0, 0.72);
+    --warning-soft: rgba(251, 191, 36, 0.14);
+    --warning-strong: var(--warning);
+    --danger-strong: var(--danger);
+    --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.24);
+    --shadow-dialog: 0 24px 64px rgba(0, 0, 0, 0.55);
+    --header-gradient: linear-gradient(180deg, rgba(17, 17, 19, 0.98) 0%, rgba(9, 9, 11, 0.98) 100%);
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', 'SF Pro Display', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-light);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+  }
+}
+
+@layer components {
+  /* Glass card — shadcn-style frosted surface. Auto-upgrades every
+     <div class="glass-card …"> across the codebase to match Card variant="glass". */
+  .glass-card {
+    @apply rounded-lg backdrop-blur-xl transition-shadow;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: hsl(var(--ui-card) / 0.65);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.10) inset,
+      0 1px 0 0 rgba(0, 0, 0, 0.40),
+      0 12px 28px -10px rgba(0, 0, 0, 0.55);
+  }
+  .glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.14) inset,
+      0 1px 0 0 rgba(0, 0, 0, 0.40),
+      0 18px 38px -10px rgba(0, 0, 0, 0.65);
+  }
+
+  /* Stat card — glass card with brand-tinted top accent bar */
+  .stat-card {
+    @apply glass-card p-4 min-w-[160px] flex-1;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--ui-brand)), transparent);
+    opacity: 0.7;
+  }
+
+  /* Modern input — matches the shadcn Input primitive aesthetic */
+  .input-field {
+    @apply w-full rounded-md px-3 py-2 text-sm outline-none transition-colors;
+    border: 1px solid hsl(var(--ui-input));
+    background-color: hsl(var(--ui-card) / 0.40);
+    color: hsl(var(--ui-foreground));
+    backdrop-filter: blur(4px);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+  .input-field::placeholder {
+    color: hsl(var(--ui-muted-foreground));
+  }
+  .input-field:focus,
+  .input-field:focus-visible {
+    border-color: hsl(var(--ui-ring)) !important;
+    box-shadow: 0 0 0 2px hsl(var(--ui-ring) / 0.30), 0 0 12px hsl(var(--ui-brand) / 0.15) !important;
+  }
+  .input-field:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* Modern button — upgraded to shadcn-style glass aesthetic.
+     Every legacy <button class="btn btn-*"> picks up the new look without
+     needing JSX migration. */
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 font-medium rounded-md cursor-pointer transition-all duration-150;
+    backdrop-filter: blur(8px);
+  }
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+  .btn-primary {
+    border: 1px solid hsl(var(--ui-brand) / 0.40);
+    background: linear-gradient(135deg, hsl(var(--ui-brand) / 0.18) 0%, hsl(var(--ui-brand) / 0.04) 100%);
+    color: hsl(var(--ui-brand));
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.06) inset, 0 8px 24px -8px rgba(0, 0, 0, 0.45);
+  }
+  .btn-primary:hover:not(:disabled) {
+    border-color: hsl(var(--ui-brand) / 0.65);
+    background: linear-gradient(135deg, hsl(var(--ui-brand) / 0.28) 0%, hsl(var(--ui-brand) / 0.10) 100%);
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.10) inset, 0 12px 32px -8px rgba(0, 0, 0, 0.55), 0 0 18px hsl(var(--ui-foreground) / 0.08);
+  }
+  .btn-primary:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+  .btn-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.06) inset, 0 8px 24px -8px rgba(0, 0, 0, 0.45);
+  }
+  .btn-secondary:hover:not(:disabled) {
+    border-color: rgba(255, 255, 255, 0.20);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.10) inset, 0 12px 32px -8px rgba(0, 0, 0, 0.55);
+  }
+  .btn-secondary:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+  .btn-danger {
+    border: 1px solid hsl(var(--ui-destructive) / 0.40);
+    background: hsl(var(--ui-destructive) / 0.15);
+    color: hsl(var(--ui-destructive));
+  }
+  .btn-danger:hover:not(:disabled) {
+    background: hsl(var(--ui-destructive) / 0.25);
+    border-color: hsl(var(--ui-destructive) / 0.60);
+  }
+  .btn-success {
+    border: 1px solid rgb(16 185 129 / 0.40);
+    background: rgb(16 185 129 / 0.15);
+    color: rgb(74 222 128);
+  }
+  .btn-success:hover:not(:disabled) {
+    background: rgb(16 185 129 / 0.25);
+    border-color: rgb(16 185 129 / 0.60);
+  }
+  .btn-warning {
+    border: 1px solid rgb(245 158 11 / 0.40);
+    background: rgb(245 158 11 / 0.15);
+    color: rgb(251 191 36);
+  }
+  .btn-warning:hover:not(:disabled) {
+    background: rgb(245 158 11 / 0.25);
+    border-color: rgb(245 158 11 / 0.60);
+  }
+
+  .btn-sm { @apply px-3 py-1.5 text-xs; }
+  .btn-md { @apply px-4 py-2 text-sm; }
+  .btn-lg { @apply px-6 py-2.5 text-sm; }
+
+  /* Badge — matches the shadcn Badge primitive */
+  .badge {
+    @apply px-2 py-0.5 rounded-md text-[11px] font-semibold tracking-wide inline-flex items-center;
+    border: 1px solid hsl(var(--ui-border));
+  }
+
+  /* Tab navigation — brand-tinted underline on active */
+  .tab-btn {
+    @apply relative bg-transparent border-none px-4 py-3 text-sm cursor-pointer whitespace-nowrap transition-colors;
+    color: hsl(var(--ui-muted-foreground));
+  }
+  .tab-btn:hover {
+    color: hsl(var(--ui-foreground));
+    background-color: hsl(var(--ui-muted) / 0.40);
+  }
+  .tab-btn-active {
+    color: hsl(var(--ui-brand)) !important;
+    font-weight: 600;
+  }
+  .tab-btn-active::after {
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: -1px;
+    height: 2px;
+    border-radius: 999px;
+    background: hsl(var(--ui-brand));
+  }
+
+  /* Modal overlay (legacy — Modal component now delegates to Dialog primitive,
+     but kept for any direct .modal-overlay/.modal-content callsites) */
+  .modal-overlay {
+    @apply fixed inset-0 z-[1000] flex items-center justify-center p-5;
+    background: rgba(0, 0, 0, 0.70);
+    backdrop-filter: blur(12px);
+    animation: fadeIn 0.2s ease-out;
+  }
+  .modal-content {
+    @apply w-full max-h-[88vh] overflow-y-auto rounded-2xl;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background-color: hsl(var(--ui-card) / 0.90);
+    backdrop-filter: blur(24px);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+    animation: slideUp 0.3s ease-out;
+  }
+
+  /* Section header — uppercase muted label */
+  .section-label {
+    @apply text-[11px] uppercase tracking-widest font-medium mb-2;
+    color: hsl(var(--ui-muted-foreground));
+  }
+
+  /* Table */
+  .table-header {
+    @apply font-semibold p-2 text-left text-[11px] uppercase tracking-wide;
+    color: hsl(var(--ui-muted-foreground));
+  }
+  .table-cell {
+    @apply p-2 text-sm;
+    color: hsl(var(--ui-foreground));
+  }
+
+  /* Spinner */
+  .spinner {
+    @apply inline-block rounded-full;
+    border: 2px solid hsl(var(--ui-border));
+    border-top-color: hsl(var(--ui-brand));
+    animation: spin 0.8s linear infinite;
+  }
+
+  /* Alert boxes — match shadcn destructive/success/warning Card tint pattern */
+  .alert-error {
+    @apply rounded-md p-3 text-sm backdrop-blur-sm;
+    border: 1px solid hsl(var(--ui-destructive) / 0.40);
+    background: hsl(var(--ui-destructive) / 0.10);
+    color: hsl(var(--ui-destructive));
+  }
+  .alert-success {
+    @apply rounded-md p-3 text-sm backdrop-blur-sm;
+    border: 1px solid rgb(16 185 129 / 0.40);
+    background: rgb(16 185 129 / 0.10);
+    color: rgb(74 222 128);
+  }
+  .alert-warning {
+    @apply rounded-md p-4 backdrop-blur-sm;
+    border: 1px solid rgb(245 158 11 / 0.40);
+    background: rgb(245 158 11 / 0.10);
+    color: rgb(251 191 36);
+  }
+
+  /* Pill button for model/test selection */
+  .pill-btn {
+    @apply rounded-full px-3 py-1.5 text-[11px] font-medium border cursor-pointer transition-all duration-150 backdrop-blur-sm;
+  }
+  .pill-btn:disabled {
+    @apply cursor-not-allowed;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--accent), var(--purple));
+  }
+}
+
+.duval-history-runner {
+  pointer-events: none;
+}
